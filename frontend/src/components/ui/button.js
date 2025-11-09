@@ -1,6 +1,6 @@
 'use client';
 
-export default function Button({onOpen, text, border, size, className = ""}) {
+export default function Button({onOpen, text, icon, border, size, className = ""}) {
 
   return (
     <button 
@@ -12,7 +12,13 @@ export default function Button({onOpen, text, border, size, className = ""}) {
       ${className}
       `}
     >
-        {text}   
+      {icon ? (<div className="flex flex-row gap-2">
+                <div className="flex items-center">{icon}</div>
+                <div>{text}</div>
+              </div>)
+      :(<div>{text}</div>)}
+      
+           
     </button>
   );
 }
